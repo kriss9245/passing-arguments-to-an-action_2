@@ -37,6 +37,10 @@ jobs:
 
     - name: Copy tomcat-users.xml into Tomcat configuration directory
       run: cp -v tomcat-users.xml ./tomcat/conf/tomcat-users.xml
+      
+    - name: Backup JAVA_HOME
+      id: java-home
+      run: echo "::set-output name=path::$JAVA_HOME"
 
     - name: Compile Tomcat
       run: |
